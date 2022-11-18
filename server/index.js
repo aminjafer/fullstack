@@ -10,11 +10,12 @@ const app = express();
 dotenv.config();
 
 //what to use 
-app.use('/posts', postRoutes);
+
 app.use(bodyParser.json({ limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended:true}));
 app.use(cors()); 
 
+app.use('/posts', postRoutes);
 //monogodb host on the cloud atlas
 const CONNECTION_URL = process.env.MONGODB_URI_WITH_CREDS;
 const PORT = process.env.PORT || 5063;
