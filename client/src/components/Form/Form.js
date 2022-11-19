@@ -26,14 +26,16 @@ const Form = ({ currentId, setCurrentId }) => {
 
         if(currentId){
             dispatch(updatePost(currentId, postData));    
-            console.log('********* Updating ********** CurrentId: ' + currentId);
-        }
-
-        dispatch(createPost(postData));
+            console.log('********* Updating ********** CurrentId: ' + currentId); 
+        } else {
+            dispatch(createPost(postData));
+        }        
+        clear();
     }
 
     const clear = () => {
-
+        setCurrentId(null);
+        setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
     }
 
     return (
